@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steven Bill</title>
+</head>
+<body>
+    <script>
+        // 1. Function to calculate the tip
+    function calcTip(bill) 
+    {
+        return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+    }
+  
+        // 2. Create an array 'bills' containing test data
+    const bills = [125, 555, 44];
+  
+    // 3. Create an array 'tips' containing the tip values for each bill
+    const tips = bills.map(calcTip);
+  
+    // 4. Create an array 'total' containing the total values (bill + tip)
+     const total = bills.map((bill, index) => bill + tips[index]);
+  
+    // Logging the results
+    console.log('Bills:', bills);
+    console.log('Tips:', tips);
+    console.log('Total:', total);
+    </script>
+</body>
+</html>

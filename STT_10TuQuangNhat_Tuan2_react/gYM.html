@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập gymnastics</title>
+</head>
+<body>
+    <script>
+        // Test data
+    const dolphinsScores = [96, 108, 89];
+    const koalasScores = [88, 91, 110];
+
+    // Calculate the average score for each team
+    const calculateAverage = (scores) => scores.reduce((acc, score) => acc + score, 0) / scores.length;
+
+    const dolphinsAverage = calculateAverage(dolphinsScores);
+    const koalasAverage = calculateAverage(koalasScores);
+
+    console.log(`Dolphins' average score: ${dolphinsAverage}`);
+    console.log(`Koalas' average score: ${koalasAverage}`);
+
+    // Compare average scores to determine the winner
+    if (dolphinsAverage > koalasAverage && dolphinsAverage >= 100) 
+    {
+        console.log("Dolphins win!");
+    } else if (koalasAverage > dolphinsAverage && koalasAverage >= 100) {
+        console.log("Koalas win!");
+    } else if (dolphinsAverage === koalasAverage && dolphinsAverage >= 100 && koalasAverage >= 100) {
+        console.log("It's a draw!");
+    } else {
+        console.log("No team wins the trophy.");
+    } 
+    console.log("SIUUUUU");
+    </script>
+</body>
+</html>

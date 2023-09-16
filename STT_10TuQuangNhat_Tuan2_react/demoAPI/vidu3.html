@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ví dụ 3</title>
+</head>
+
+<body>
+    <script>
+        // Tạo một hàm để thực hiện yêu cầu GET bằng XMLHttpRequest
+        function fetchData(url) {
+            return new Promise(function (resolve, reject) {
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", url, true);
+
+                xhr.onload = function () {
+                    if (xhr.status >= 200 && xhr.status < 300) {
+                        resolve(xhr.responseText); // Khi thành công, trả về dữ liệu
+                    } else {
+                        reject(xhr.statusText); // Khi gặp lỗi, trả về thông báo lỗi
+                    }
+                };
+                xhr.onerror = function () {
+                    reject(xhr.statusText); // Xử lý lỗi khi không thể kết nối đến máy chủ
+                };
+                xhr.send();
+            });
+        }
+
+        // Sử dụng Promise để tải dữ liệu và xử lý nó
+        var apiUrl = 'https://jsonplaceholder.typicode.com/users';
+
+        fetchData(apiUrl)
+            .then(function (response) {
+                var users = JSON.parse(response);
+                console.log('Danh sách người dùng:', users);
+            })
+            .catch(function (error) {
+                console.error('Đã xảy ra lỗi:', error);
+            });
+    </script>
+</body>
+
+</html>
